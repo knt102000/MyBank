@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyBank</string>
+    <string name="amountHint">Enter Amount Here</string>
+    <string name="withdrawBtn">Withdraw</string>
+    <string name="depositBtn">Deposit</string>
+    <string name="balancePlaceholder">Account Balance</string>
+</resources>
