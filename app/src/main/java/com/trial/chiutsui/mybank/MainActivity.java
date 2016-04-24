@@ -7,7 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.trial.chiutsui.accounts.BankAccount;
+import com.trial.chiutsui.accounts.CheckingAccount;
+
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     Button depositBtn;
     Button withdrawBtn;
@@ -21,19 +26,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        currentAccount=new BankAccount();
+        currentAccount = new CheckingAccount();
 
-        balance=(TextView) findViewById(R.id.accountBalance);
-        amount=(EditText) findViewById(R.id.amount);
-        depositBtn=(Button) findViewById(R.id.depositBtn);
-        withdrawBtn=(Button) findViewById(R.id.withdrawBtn);
+        balance = (TextView) findViewById(R.id.accountBalance);
+        amount = (EditText) findViewById(R.id.amount);
+        depositBtn = (Button) findViewById(R.id.depositBtn);
+        withdrawBtn = (Button) findViewById(R.id.withdrawBtn);
 
         withdrawBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String amountInput = amount.getText().toString();
                 currentAccount.withdraw(Double.parseDouble(amountInput));
-                balance.setText("Balance is "+currentAccount.getBalance());
+                balance.setText("Balance is " + currentAccount.getBalance());
             }
         });
 
@@ -42,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String amountInput = amount.getText().toString();
                 currentAccount.deposit(Double.parseDouble(amountInput));
-                balance.setText("Balance is "+currentAccount.getBalance());
+                balance.setText("Balance is " + currentAccount.getBalance());
             }
         });
 
